@@ -1,0 +1,5 @@
+ingress:
+  - hostname: dev-afonsodev-web.afonso.dev
+    service: http://host.docker.internal:3000
+
+  - service: http_status:404

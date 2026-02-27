@@ -3,7 +3,7 @@
   "name": "afonso-dev",
   "compatibility_date": "2026-02-05",
   "assets": {
-    "directory": "./dist",
+    "directory": "./.output/public",
     "not_found_handling": "404-page",
   },
   "observability": { "enabled": true },

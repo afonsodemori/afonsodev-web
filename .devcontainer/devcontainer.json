@@ -1,0 +1,28 @@
+{
+  "name": "afonsodev-web",
+  "dockerComposeFile": "compose.yml",
+  "service": "app",
+  "workspaceFolder": "/app",
+
+  "mounts": [
+    // "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind",
+    "source=cloudflared,target=/home/vscode/.cloudflared,type=volume",
+    "source=gemini,target=/home/vscode/.gemini,type=volume",
+    "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
+  ],
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { "moby": false },
+    "ghcr.io/devcontainers/features/go:1": { "version": "1.25.6" },
+    "ghcr.io/devcontainers/features/node:1": { "version": "24" },
+    "ghcr.io/devcontainers-extra/features/cloudflared:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["Vue.volar", "EditorConfig.EditorConfig", "esbenp.prettier-vscode"]
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/install.sh"
+}

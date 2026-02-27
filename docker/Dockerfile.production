@@ -1,0 +1,4 @@
+FROM dhi.io/nginx:1-alpine3.23
+COPY --chown=nginx:nginx ./docker/nginx*.conf /etc/nginx/
+COPY --chown=nginx:nginx ./.output/public /usr/share/nginx/html
+EXPOSE 8080

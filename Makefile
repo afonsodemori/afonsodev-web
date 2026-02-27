@@ -1,15 +1,17 @@
-help:
+include .env
 
-clean:
-	rm -rf .nuxt/ .output/ .wrangler/ dist/ node_modules/ i18n/locales/generated/*
-	npm ci
-	. bin/prebuild.sh
+# development
+
+dev: build
+	npx nuxt dev
 
 build:
 	npx nuxt build
 
-dev: build
-	npx nuxt dev
+clean:
+	rm -rf .nuxt/ .output/ .wrangler/ dist/ node_modules/ i18n/locales/generated/*
+	npm ci
+	/bin/bash bin/prebuild.sh
 
 import-resume:
 	bash bin/resume-html.sh
@@ -27,3 +29,36 @@ deploy-preview: clean generate
 deploy-production: clean generate
 	npx wrangler deploy --env=production
 	rm -rf dist/
+
+# cloudflare tunnel
+
+tunnel-init:
+	cloudflared tunnel login
+	cloudflared tunnel create dev-afonsodev-web
+	cloudflared tunnel route dns --overwrite-dns dev-afonsodev-web dev-afonsodev-web.afonso.dev
+
+tunnel-run:
+	cloudflared tunnel --config=.devcontainer/cloudflared/config.yml run dev-afonsodev-web
+
+# docker
+
+docker-build:
+	@echo "Building Docker image $(IMAGE_NAME)"
+	rm -f ./.output/public/_redirects
+	/bin/bash ./bin/nginx-redirections.sh
+	@ARGS=; \
+	for tag in $$(echo "$(IMAGE_TAGS)" | tr ',' ' '); do \
+		echo "Adding tag: $$tag"; \
+		ARGS="$$ARGS --tag $(IMAGE_NAME):$$tag"; \
+	done; \
+	docker buildx build . \
+		--platform linux/amd64,linux/arm64 \
+		--file docker/Dockerfile.production \
+		$$ARGS
+	rm ./docker/nginx-redirections.conf
+
+docker-push: docker-build
+	@for tag in $$(echo "$(IMAGE_TAGS)" | tr ',' ' '); do \
+		echo "Pushing tag: $$tag"; \
+		docker push $(IMAGE_NAME):$$tag; \
+	done
