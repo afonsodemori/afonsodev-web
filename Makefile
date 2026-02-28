@@ -34,15 +34,15 @@ deploy-production: clean generate
 
 tunnel-init:
 	cloudflared tunnel login
-	cloudflared tunnel create dev-afonsodev-web
-	cloudflared tunnel route dns --overwrite-dns dev-afonsodev-web dev-afonsodev-web.afonso.dev
+	cloudflared tunnel create afonsodev-web || true
+	cloudflared tunnel route dns --overwrite-dns afonsodev-web dev-afonsodev-web.afonso.dev
 
 tunnel-run:
-	cloudflared tunnel --config=.devcontainer/cloudflared/config.yml run dev-afonsodev-web
+	cloudflared tunnel --config=.devcontainer/cloudflared/config.yml run afonsodev-web
 
 # docker
 
-docker-build:
+docker-build: clean generate
 	@echo "Building Docker image $(IMAGE_NAME)"
 	rm -f ./.output/public/_redirects
 	/bin/bash ./bin/nginx-redirections.sh

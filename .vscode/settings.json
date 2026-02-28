@@ -15,5 +15,8 @@
   },
   "files.autoSave": "onFocusChange",
   "tailwindCSS.classAttributes": ["class", "ui"],
-  "tailwindCSS.experimental.classRegex": [["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]]
+  "tailwindCSS.experimental.classRegex": [["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]],
+  "[shellscript]": {
+    "editor.defaultFormatter": "mkhl.shfmt"
+  }
 }
