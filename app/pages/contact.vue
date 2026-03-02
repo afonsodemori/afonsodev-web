@@ -71,7 +71,7 @@
     loading.value = true;
     try {
       const token = turnstile.getResponse(widgetId);
-      const res = await fetch(`${apiBaseUrl}/send-email`, {
+      const res = await fetch(`${apiBaseUrl}/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
