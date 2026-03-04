@@ -57,6 +57,9 @@ docker-build: clean generate
 		$$ARGS
 	rm ./docker/nginx-redirections.conf
 
+docker-run:
+	docker run -p 8080:8080 $(IMAGE_NAME)
+
 docker-push: docker-build
 	@for tag in $$(echo "$(IMAGE_TAGS)" | tr ',' ' '); do \
 		echo "Pushing tag: $$tag"; \

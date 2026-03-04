@@ -76,8 +76,3 @@ contact:
     success: Sua mensagem foi enviada com sucesso!
     failure: Falha ao enviar. Por favor, tente novamente.
     unexpected: Ocorreu um erro. Por favor, tente novamente.
-
-error:
-  error: Erro
-  title: Isso é um erro.
-  details: Isso é tudo o que sabemos.

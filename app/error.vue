@@ -1,27 +1,23 @@
 <script setup lang="ts">
   import type { NuxtError } from '#app';
 
-  const { locale, t } = useI18n();
   const { error } = defineProps<{
     error: NuxtError;
   }>();
 
   useHead({
-    htmlAttrs: {
-      lang: locale.value,
-    },
-    title: `${t('error.error')} ${error.statusCode} - afonso.dev`,
+    title: `Error ${error.statusCode} - afonso.dev`,
   });
 </script>
 
 <template>
   <main>
     <h1 class="text-secondary-500">{{ error.statusCode }}</h1>
-    <p class="details">{{ t('error.title') }}</p>
-    <UButton style="margin-top: 2rem" to="/" icon="i-lucide-home">{{ t('nav.index') }}</UButton>
+    <p class="details">That's an error.</p>
+    <UButton style="margin-top: 2rem" to="/" icon="i-lucide-home">Home</UButton>
     <USeparator style="margin: 3rem 0" />
     <p class="message">{{ error.statusMessage }}</p>
-    <p class="details">{{ t('error.details') }}</p>
+    <p class="details">That's all we know.</p>
   </main>
 </template>
 
