@@ -11,12 +11,12 @@ export default defineNuxtConfig({
     },
   },
 
-  nitro: {
-    preset: 'static',
-    prerender: {
-      autoSubfolderIndex: false,
-    },
-  },
+  // nitro: {
+  //   preset: 'static',
+  //   prerender: {
+  //     autoSubfolderIndex: false,
+  //   },
+  // },
 
   modules: ['@nuxtjs/i18n', '@nuxt/ui', '@nuxt/fonts'],
 

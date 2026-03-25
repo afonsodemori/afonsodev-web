@@ -1,10 +1,19 @@
-image: node:24
-create-pages:
-  pages:
-    publish: .output/public
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+pages:
+  image: node:24
   before_script:
-    - npm ci
+    - npm ci --cache .npm --prefer-offline
   script:
     - make generate
+    - echo "{\"status\":\"up\", \"commit\":\"$CI_COMMIT_SHORT_SHA\", \"built_at\":\"$(date -u +'%Y-%m-%dT%H:%M:%SZ')\"}" > .output/public/health.json
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  artifacts:
+    paths:
+      - .output/public
+  publish: .output/public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
