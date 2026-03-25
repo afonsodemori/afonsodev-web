@@ -19,7 +19,7 @@
     "lint:fix": "eslint . --fix --ignore-pattern 'worker-configuration.d.ts'"
   },
   "dependencies": {
-    "@nuxt/fonts": "^0.13.0",
+    "@nuxt/fonts": "^0.14.0",
     "@nuxt/ui": "^4.4.0",
     "@nuxtjs/i18n": "^10.2.1",
     "nuxt": "^4.0.2",
@@ -37,8 +37,7 @@
     "prettier": "^3.8.1",
     "supertest": "^7.1.0",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2",
-    "vitest": "^3.0.9",
-    "wrangler": "^4.27.0"
+    "typescript": "^5.9.3",
+    "vitest": "^3.0.9"
   }
 }
