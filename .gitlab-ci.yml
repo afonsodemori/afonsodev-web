@@ -1,0 +1,10 @@
+image: node:24
+create-pages:
+  pages:
+    publish: .output/public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  before_script:
+    - npm ci
+  script:
+    - make generate
