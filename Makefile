@@ -34,10 +34,12 @@ tunnel-run:
 
 # docker
 
+CI_COMMIT_SHORT_SHA ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 docker-build: clean generate
 	@echo "Building Docker image $(IMAGE_NAME)"
 	rm -f ./.output/public/_redirects
 	/bin/bash ./bin/nginx-redirections.sh
+	@echo "{\"status\":\"up\", \"commit\":\"$(CI_COMMIT_SHORT_SHA)\", \"built_at\":\"$$(date -u +'%Y-%m-%dT%H:%M:%SZ')\"}" > .output/public/health.json
 	@ARGS=; \
 	for tag in $$(echo "$(IMAGE_TAGS)" | tr ',' ' '); do \
 		echo "Adding tag: $$tag"; \
