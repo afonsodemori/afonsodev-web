@@ -1,43 +1,24 @@
 {
-  "name": "afonso-web",
-  "private": true,
+  "name": "afonsodev-web",
   "type": "module",
-  "scripts": {
-    "prebuild": "bash bin/prebuild.sh",
-    "build": "npm run prebuild && nuxt build",
-    "build:resume": "bash bin/resume-html.sh",
-    "dev": "nuxt dev",
-    "dev:public": "nuxt dev --public",
-    "preview": "npm run build:resume && npm run build && wrangler dev --ip 0.0.0.0",
-    "postinstall": "nuxt prepare",
-    "deploy:preview": "npm run build:resume && npm run build && wrangler deploy --env=preview --name=preview-afonso-dev",
-    "deploy:production": "npm run build:resume && npm run build && wrangler deploy --env=production --name=afonso-dev",
-    "cf-typegen": "wrangler types",
-    "format:check": "prettier --check .",
-    "format": "prettier --write .",
-    "lint": "eslint . --ignore-pattern 'worker-configuration.d.ts'",
-    "lint:fix": "eslint . --fix --ignore-pattern 'worker-configuration.d.ts'"
-  },
+  "private": true,
   "dependencies": {
     "@nuxt/fonts": "^0.14.0",
-    "@nuxt/ui": "^4.4.0",
-    "@nuxtjs/i18n": "^10.2.1",
-    "nuxt": "^4.0.2",
-    "vue": "^3.5.13",
-    "vue-router": "^4.6.4",
+    "@nuxt/ui": "^4.6.0",
+    "@nuxtjs/i18n": "^10.2.4",
+    "nuxt": "^4.4.2",
+    "vue": "^3.5.31",
+    "vue-router": "^5.0.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.60",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.45",
-    "@types/jest": "^29.5.14",
-    "@types/node": "^24.10.11",
-    "@types/supertest": "^6.0.3",
-    "prettier": "^3.8.1",
-    "supertest": "^7.1.0",
+    "@types/node": "^24.12.0",
+    "dotenv-cli": "^11.0.0",
     "tsx": "^4.19.3",
     "typescript": "^5.9.3",
-    "vitest": "^3.0.9"
+    "wrangler": "^4.79.0"
   }
 }

@@ -11,14 +11,14 @@ export default defineNuxtConfig({
     },
   },
 
-  // nitro: {
-  //   preset: 'static',
-  //   prerender: {
-  //     autoSubfolderIndex: false,
-  //   },
-  // },
+  nitro: {
+    preset: 'static',
+    prerender: {
+      autoSubfolderIndex: false,
+    },
+  },
 
-  modules: ['@nuxtjs/i18n', '@nuxt/ui', '@nuxt/fonts'],
+  modules: ['@nuxt/ui', '@nuxtjs/i18n', '@nuxt/fonts'],
 
   css: ['~/assets/base.css'],
 
@@ -36,7 +36,6 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     strategy: 'prefix_and_default',
     compilation: { strictMessage: false, escapeHtml: false },
-    //bundle: { optimizeTranslationDirective: false },
   },
 
   fonts: {

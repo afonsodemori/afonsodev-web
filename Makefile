@@ -1,26 +1,38 @@
--include .env
+# -include .env
 
 # development
 
 dev: build
-	npx nuxt dev
+	npx nuxt dev --host
 
 build:
 	npx nuxt build
 
+preview: generate-production
+	npx nuxt preview
+
 clean:
 	rm -rf .nuxt/ .output/ .wrangler/ dist/ node_modules/ i18n/locales/generated/*
 	npm ci
-	/bin/bash bin/prebuild.sh
+	./bin/prebuild.sh
 
 import-resume:
-	bash bin/resume-html.sh
+	./bin/resume-html.sh
 
-generate: import-resume
-	npx nuxt generate
+CI_COMMIT_SHORT_SHA ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+generate-preview: import-resume
+	npx dotenv -e .env.preview -- npx nuxt generate
+	@echo "{\"status\":\"up\", \"service\":\"afonsodev-web\", \"env\":\"preview\", \"commit\":\"$(CI_COMMIT_SHORT_SHA)\", \"built_at\":\"$$(date -u +'%Y-%m-%dT%H:%M:%SZ')\"}" > ./.output/public/health.json
 
-preview: generate
-	npx nuxt preview
+generate-production: import-resume
+	npx dotenv -e .env.production -- npx nuxt generate
+	@echo "{\"status\":\"up\", \"service\":\"afonsodev-web\", \"env\":\"production\", \"commit\":\"$(CI_COMMIT_SHORT_SHA)\", \"built_at\":\"$$(date -u +'%Y-%m-%dT%H:%M:%SZ')\"}" > ./.output/public/health.json
+
+deploy-preview: clean generate-preview
+	npx wrangler deploy --env=preview --minify
+
+deploy-production: clean generate-production
+	npx wrangler --env=production deploy --minify
 
 # cloudflare tunnel
 
