@@ -7,9 +7,6 @@
   "editor.quickSuggestions": {
     "strings": "on"
   },
-  "files.associations": {
-    "wrangler.json": "jsonc"
-  },
   "files.autoSave": "onFocusChange",
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"

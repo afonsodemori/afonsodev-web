@@ -2,3 +2,12 @@ services:
   app:
     image: ghcr.io/afonsodemori/devcontainers/node:24
     command: sleep infinity
+    networks:
+      shared:
+        aliases:
+          - afonsodev.localhost
+
+networks:
+  shared:
+    external: true
+    name: devcontainer-network

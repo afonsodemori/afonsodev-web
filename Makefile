@@ -1,9 +1,9 @@
-# -include .env
+-include .env
 
 # development
 
 dev: build
-	npx nuxt dev --host
+	npx nuxt dev --port $(PORT) --host
 
 build:
 	npx nuxt build
