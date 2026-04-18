@@ -14,13 +14,14 @@ for html_url in "${html_urls[@]}"; do
   output_yaml="./i18n/locales/generated/$lang-resume.yaml"
 
   curl $html_url -so $html_local_path
+  sed -i '/<script/,/<\/script>/d' "$html_local_path"
 
   echo "Generate $output_yaml"
   {
     echo "resume:"
     echo "  html: |"
     sed "s/@/{'@'}/g; s/|/{'|'}/g; s/^/    /" "$html_local_path" # Replace @, | and indent lines
-  } > $output_yaml
+  } >$output_yaml
 
   rm $html_local_path
 done
