@@ -5,6 +5,7 @@
   const config = useRuntimeConfig();
   const route = useRoute();
   const host = config.public.websiteHost;
+  const staticHost = config.public.staticHost;
 
   const alternates = locales.value.map((lang) => ({
     rel: 'alternate',
@@ -35,14 +36,14 @@
   });
 
   onMounted(() => {
-    fetch(`https://static.afonso.dev/afonso-de-mori-cv-${locale.value}.html`)
-      .then(response => {
+    fetch(`${staticHost}/afonso-de-mori-cv-${locale.value}.html`)
+      .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         return response.text();
       })
-      .then(html => {
+      .then((html) => {
         document.querySelector<HTMLDivElement>('#page')!.innerHTML = html;
       })
       .catch(() => {})
@@ -76,28 +77,28 @@
         {
           label: 'PDF',
           icon: 'mdi-file-pdf-outline',
-          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.pdf`,
+          to: `${staticHost}/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.pdf`,
           target: '_blank',
           kbds: ['.pdf'],
         },
         {
           label: 'Microsoft Word',
           icon: 'mdi-file-word-outline',
-          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.docx`,
+          to: `${staticHost}/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.docx`,
           target: '_blank',
           kbds: ['.docx'],
         },
         {
           label: 'Markdown',
           icon: 'mdi-file-text-outline',
-          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.md`,
+          to: `${staticHost}/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.md`,
           target: '_blank',
           kbds: ['.md'],
         },
         {
           label: t(`${localeKey}.formats.txt`),
           icon: 'mdi-file-text-outline',
-          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.txt`,
+          to: `${staticHost}/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.txt`,
           target: '_blank',
           kbds: ['.txt'],
         },

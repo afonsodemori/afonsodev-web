@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     public: {
       nodeEnv: process.env.NODE_ENV,
       websiteHost: process.env.WEBSITE_HOST,
+      staticHost: process.env.STATIC_HOST,
       apiBaseUrl: process.env.API_BASE_URL,
       turnstileKey: process.env.TURNSTILE_KEY,
     },
