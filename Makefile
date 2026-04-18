@@ -21,11 +21,11 @@ import-resume:
 
 CI_COMMIT_SHORT_SHA ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 generate-preview: import-resume
-	npx nuxt build --dotenv=.env.preview
+	npx dotenv -e .env.preview -- npx nuxt generate
 	@echo "{\"status\":\"up\", \"service\":\"afonsodev-web\", \"env\":\"preview\", \"commit\":\"$(CI_COMMIT_SHORT_SHA)\", \"built_at\":\"$$(date -u +'%Y-%m-%dT%H:%M:%SZ')\"}" > ./.output/public/health.json
 
 generate-production: import-resume
-	npx nuxt build --dotenv=.env.production
+	npx dotenv -e .env.production -- npx nuxt generate
 	@echo "{\"status\":\"up\", \"service\":\"afonsodev-web\", \"env\":\"production\", \"commit\":\"$(CI_COMMIT_SHORT_SHA)\", \"built_at\":\"$$(date -u +'%Y-%m-%dT%H:%M:%SZ')\"}" > ./.output/public/health.json
 
 deploy-preview: clean generate-preview
