@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/afonsodemori/devcontainers/node:24
+    image: ghcr.io/afonsodemori/devcontainers/node:24-20260416-064128
     command: sleep infinity
     networks:
       shared:

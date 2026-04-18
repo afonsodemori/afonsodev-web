@@ -9,7 +9,7 @@
     "source=${localEnv:HOME}/.fns-cli,target=/home/vscode/.fns-cli,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.bash_history,target=/home/vscode/.bash_history,type=bind,consistency=cached",
     // devtools
-    "source=${localEnv:HOME}/.cloudflared,target=/home/vscode/.cloudflared,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.config/.wrangler,target=/home/vscode/.wrangler,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.claude.json,target=/home/vscode/.claude.json,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached",
     // source code
@@ -17,8 +17,7 @@
   ],
 
   "features": {
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { "moby": false },
-    "ghcr.io/devcontainers-extra/features/cloudflared:1": {}
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { "moby": false }
   },
 
   "customizations": {

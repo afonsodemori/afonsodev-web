@@ -3,7 +3,7 @@
 # development
 
 dev: build
-	npx nuxt dev --port $(PORT) --host
+	npx nuxt dev --port=$(PORT) --host=0.0.0.0
 
 build:
 	npx nuxt build
@@ -33,16 +33,6 @@ deploy-preview: clean generate-preview
 
 deploy-production: clean generate-production
 	npx wrangler --env=production deploy --minify
-
-# cloudflare tunnel
-
-tunnel-init:
-	cloudflared tunnel login
-	cloudflared tunnel create afonsodev-web || true
-	cloudflared tunnel route dns --overwrite-dns afonsodev-web dev-afonsodev-web.afonso.dev
-
-tunnel-run:
-	cloudflared tunnel --config=.devcontainer/cloudflared/config.yml run afonsodev-web
 
 # docker
 
