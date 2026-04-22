@@ -60,7 +60,7 @@
           } else if (index !== 0 && index !== 3) a.setAttribute('target', '_blank');
         });
 
-        const lastParagraph = pageElement?.lastElementChild as HTMLParagraphElement | null;
+        const lastParagraph = pageElement?.querySelector('p:last-of-type') as HTMLParagraphElement | null;
 
         if (lastParagraph) {
           const emphasisElement = lastParagraph.querySelector<HTMLElement>('em');
