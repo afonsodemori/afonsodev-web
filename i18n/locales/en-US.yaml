@@ -54,6 +54,9 @@ resume:
       google:
         label: Ver no Google Docs
       linkedin: Ver perfil no LinkedIn
+  early_experiences:
+    show: See early experiences
+    hide: Hide early experiences
 
 contact:
   form:

@@ -35,8 +35,17 @@
     twitterCard: 'summary_large_image',
   });
 
+  const earlyExpVisible = ref(false);
+  const earlyExpElements = ref<HTMLElement[]>([]);
+  const earlyExpReady = ref(false);
+
+  function toggleEarlyExperiences() {
+    earlyExpVisible.value = !earlyExpVisible.value;
+    earlyExpElements.value.forEach((e) => (e.style.display = earlyExpVisible.value ? '' : 'none'));
+  }
+
   onMounted(() => {
-    fetch(`${staticHost}/afonso-de-mori-cv-${locale.value}.html`)
+    fetch(`${staticHost}/afonso-de-mori-cv-${locale.value}-full.html`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -66,6 +75,39 @@
           const emphasisElement = lastParagraph.querySelector<HTMLElement>('em');
           if (emphasisElement?.textContent) {
             emphasisElement.textContent = emphasisElement.textContent.split(' — ')[0]?.trim() || '';
+          }
+        }
+
+        const experienceH2 = pageElement?.querySelector('h2[id^="experi"]');
+        if (experienceH2) {
+          const experienceElements: Element[] = [];
+          let el = experienceH2.nextElementSibling;
+          while (el && el.tagName !== 'H2') {
+            experienceElements.push(el);
+            el = el.nextElementSibling;
+          }
+
+          let h3Count = 0;
+          let splitIndex = -1;
+          for (let i = 0; i < experienceElements.length; i++) {
+            if (experienceElements[i]?.tagName === 'H3') {
+              h3Count++;
+              if (h3Count === 6) {
+                splitIndex = i;
+                break;
+              }
+            }
+          }
+
+          if (splitIndex !== -1) {
+            const early = experienceElements.slice(splitIndex) as HTMLElement[];
+            early.forEach((e) => (e.style.display = 'none'));
+            earlyExpElements.value = early;
+
+            const sentinel = document.createElement('div');
+            sentinel.id = 'early-exp-sentinel';
+            experienceElements[splitIndex - 1]?.insertAdjacentElement('afterend', sentinel);
+            earlyExpReady.value = true;
           }
         }
       });
@@ -157,6 +199,18 @@
     </div>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div id="page" v-html="$t('resume.html')" />
+    <Teleport v-if="earlyExpReady" to="#early-exp-sentinel">
+      <UButton
+        color="neutral"
+        variant="outline"
+        class="print:hidden"
+        :style="earlyExpVisible ? 'margin-bottom: 2rem;' : ''"
+        @click="toggleEarlyExperiences"
+        :trailing-icon="earlyExpVisible ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
+      >
+        {{ earlyExpVisible ? t('resume.early_experiences.hide') : t('resume.early_experiences.show') }}
+      </UButton>
+    </Teleport>
   </div>
 </template>
 

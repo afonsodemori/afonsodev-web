@@ -1,16 +1,16 @@
 #!/bin/bash
 
 html_urls=(
-  "https://static.afonso.dev/afonso-de-mori-cv-en.html"
-  "https://static.afonso.dev/afonso-de-mori-cv-es.html"
-  "https://static.afonso.dev/afonso-de-mori-cv-pt.html"
+  "https://static.afonso.dev/afonso-de-mori-cv-en-full.html"
+  "https://static.afonso.dev/afonso-de-mori-cv-es-full.html"
+  "https://static.afonso.dev/afonso-de-mori-cv-pt-full.html"
 )
 
 for html_url in "${html_urls[@]}"; do
   filename=$(basename $html_url)
   html_local_path=/tmp/$filename
 
-  [[ $html_url =~ afonso-de-mori-cv-([a-z]{2})\.html ]] && lang="${BASH_REMATCH[1]}"
+  [[ $html_url =~ afonso-de-mori-cv-([a-z]{2})-full\.html ]] && lang="${BASH_REMATCH[1]}"
   output_yaml="./i18n/locales/generated/$lang-resume.yaml"
 
   curl $html_url -so $html_local_path
