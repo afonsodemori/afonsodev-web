@@ -1,14 +1,62 @@
 /cv /resume 308
-/cv/en /en/resume 308
+/curriculum /resume 308
+
+/cv/en /resume 308
 /cv/es /es/resume 308
 /cv/pt /pt/resume 308
-/curriculum /resume 308
-/en/curriculum /en/resume 308
+
+/en/cv /resume 308
+/es/cv /es/resume 308
+/pt/cv /pt/resume 308
+
+/en/curriculum /resume 308
 /es/curriculum /es/resume 308
 /pt/curriculum /pt/resume 308
-/contact/en /en/contact 308
+
+/contact/en /contact 308
 /contact/es /es/contact 308
 /contact/pt /pt/contact 308
+
+/support /contact 308
+/help /contact 308
+/contacto /es/contact 308
+/contato /pt/contact 308
+
+/resume.pdf https://static.afonso.dev/afonso-de-mori-cv-en.pdf 308
+/en/resume.pdf https://static.afonso.dev/afonso-de-mori-cv-en.pdf 308
+/es/resume.pdf https://static.afonso.dev/afonso-de-mori-cv-es.pdf 308
+/pt/resume.pdf https://static.afonso.dev/afonso-de-mori-cv-pt.pdf 308
+
+/resume.docx https://static.afonso.dev/afonso-de-mori-cv-en.docx 308
+/en/resume.docx https://static.afonso.dev/afonso-de-mori-cv-en.docx 308
+/es/resume.docx https://static.afonso.dev/afonso-de-mori-cv-es.docx 308
+/pt/resume.docx https://static.afonso.dev/afonso-de-mori-cv-pt.docx 308
+
+/resume.odt https://static.afonso.dev/afonso-de-mori-cv-en.odt 308
+/en/resume.odt https://static.afonso.dev/afonso-de-mori-cv-en.odt 308
+/es/resume.odt https://static.afonso.dev/afonso-de-mori-cv-es.odt 308
+/pt/resume.odt https://static.afonso.dev/afonso-de-mori-cv-pt.odt 308
+
+/resume.md https://static.afonso.dev/afonso-de-mori-cv-en.md 308
+/en/resume.md https://static.afonso.dev/afonso-de-mori-cv-en.md 308
+/es/resume.md https://static.afonso.dev/afonso-de-mori-cv-es.md 308
+/pt/resume.md https://static.afonso.dev/afonso-de-mori-cv-pt.md 308
+
+/resume.txt https://static.afonso.dev/afonso-de-mori-cv-en.txt 308
+/en/resume.txt https://static.afonso.dev/afonso-de-mori-cv-en.txt 308
+/es/resume.txt https://static.afonso.dev/afonso-de-mori-cv-es.txt 308
+/pt/resume.txt https://static.afonso.dev/afonso-de-mori-cv-pt.txt 308
+
+/resume.html https://static.afonso.dev/afonso-de-mori-cv-en.html 308
+/en/resume.html https://static.afonso.dev/afonso-de-mori-cv-en.html 308
+/es/resume.html https://static.afonso.dev/afonso-de-mori-cv-es.html 308
+/pt/resume.html https://static.afonso.dev/afonso-de-mori-cv-pt.html 308
+
+/resume.gdocs https://docs.google.com/document/d/1krPEmJE8R_YKKNEVLx2tb1Mk9kEGHu2C6h3oHAVV9iI 308
+/en/resume.gdocs https://docs.google.com/document/d/1krPEmJE8R_YKKNEVLx2tb1Mk9kEGHu2C6h3oHAVV9iI 308
+/es/resume.gdocs https://docs.google.com/document/d/1q9hZvK40jINSpSd2rliJf7wdK_3Jj-psyOBChskYKg4 308
+/pt/resume.gdocs https://docs.google.com/document/d/1fQulPzm1T1YEHUtO4uN9qyCz7GFwBLQ0OjgP8Y9_e3s 308
+
 /docs/resume-en-afonso_de_mori.pdf https://static.afonso.dev/afonso-de-mori-cv-en.pdf 308
 /docs/resume-es-afonso_de_mori.pdf https://static.afonso.dev/afonso-de-mori-cv-es.pdf 308
 /docs/resume-pt-afonso_de_mori.pdf https://static.afonso.dev/afonso-de-mori-cv-pt.pdf 308
@@ -24,6 +72,7 @@
 /docs/resume-en-afonso_de_mori.md https://static.afonso.dev/afonso-de-mori-cv-en.md 308
 /docs/resume-es-afonso_de_mori.md https://static.afonso.dev/afonso-de-mori-cv-es.md 308
 /docs/resume-pt-afonso_de_mori.md https://static.afonso.dev/afonso-de-mori-cv-pt.md 308
+
 /docs/cv-en-afonso_de_mori.pdf https://static.afonso.dev/afonso-de-mori-cv-en.pdf 308
 /docs/cv-es-afonso_de_mori.pdf https://static.afonso.dev/afonso-de-mori-cv-es.pdf 308
 /docs/cv-pt-afonso_de_mori.pdf https://static.afonso.dev/afonso-de-mori-cv-pt.pdf 308
@@ -39,22 +88,21 @@
 /docs/cv-en-afonso_de_mori.md https://static.afonso.dev/afonso-de-mori-cv-en.md 308
 /docs/cv-es-afonso_de_mori.md https://static.afonso.dev/afonso-de-mori-cv-es.md 308
 /docs/cv-pt-afonso_de_mori.md https://static.afonso.dev/afonso-de-mori-cv-pt.md 308
-/support /contact 308
-/help /contact 308
-/contacto /es/contact 308
-/contato /pt/contact 308
+
 /in https://www.linkedin.com/in/afonsodemori/ 308
 /linkedin https://www.linkedin.com/in/afonsodemori/ 308
 /gh https://github.com/afonsodemori 308
 /github https://github.com/afonsodemori 308
+
 /wa https://api.whatsapp.com/send/?phone=34602443854 308
 /wa-br https://api.whatsapp.com/send/?phone=5528999815833 308
 /whatsapp https://api.whatsapp.com/send/?phone=34602443854 308
 /whatsapp-br https://api.whatsapp.com/send/?phone=5528999815833 308
 /duolingo https://www.duolingo.com/profile/afonsodemori 308
-/w3 https://www.w3profile.com/afonsodemori 308
+
 /status https://status.afonso.dev 308
-/despacho https://meet.google.com/jjg-tbus-xhc 308
-/office https://meet.google.com/jjg-tbus-xhc 308
-/meet https://meet.google.com/rpz-thpg-pxf 308
 /fns-cli https://github.com/afonsodemori/fns-cli 308
+
+/office https://meet.google.com/jjg-tbus-xhc 308
+/despacho https://meet.google.com/jjg-tbus-xhc 308
+/meet https://meet.google.com/rpz-thpg-pxf 308

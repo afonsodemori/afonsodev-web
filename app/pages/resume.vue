@@ -108,7 +108,7 @@
         {
           label: t(`${localeKey}.formats.google.label`),
           icon: 'mdi-google-drive',
-          to: `/${t(`${localeKey}.locale`)}/resume/e`,
+          to: `/${t(`${localeKey}.locale`)}/resume.gdocs`,
           target: '_blank',
         },
         {
