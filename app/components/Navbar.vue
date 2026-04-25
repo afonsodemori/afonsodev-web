@@ -68,6 +68,7 @@
         target="_blank"
         icon="i-simple-icons-linkedin"
         aria-label="LinkedIn"
+        class="opacity-70 hover:opacity-100"
       />
 
       <UButton
@@ -76,8 +77,20 @@
         to="https://github.com/afonsodemori"
         target="_blank"
         icon="i-simple-icons-github"
+        class="opacity-70 hover:opacity-100"
         aria-label="GitHub"
       />
+
+      <USelect
+        :model-value="locale"
+        :items="[
+          { value: 'en', label: 'English' },
+          { value: 'es', label: 'Español' },
+          { value: 'pt', label: 'Português' },
+        ]"
+        @update:model-value="setLocale($event)"
+        class="opacity-70 hover:opacity-100 hidden [@media(min-width:460px)]:inline"
+      ></USelect>
     </template>
 
     <template #body>
