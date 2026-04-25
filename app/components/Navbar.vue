@@ -53,26 +53,35 @@
 </script>
 
 <template>
-  <div>
-    <UNavigationMenu
-      highlight
-      highlight-color="primary"
-      orientation="horizontal"
-      content-orientation="vertical"
-      :items="items"
-      class="hidden md:flex z-10 data-[orientation=horizontal]:border-b border-(--ui-border)"
-    />
+  <UHeader mode="slideover">
+    <template #title>
+      <Logo class="h-6 w-auto" />
+    </template>
 
-    <!-- TODO: Temporary lazy fix for small screens -->
-    <UNavigationMenu
-      highlight
-      highlight-color="primary"
-      orientation="horizontal"
-      content-orientation="vertical"
-      :items="items[0]"
-      class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border)"
-    />
+    <UNavigationMenu :items="items[0]" />
 
-    <NavbarDropdown class="flex md:hidden" />
-  </div>
+    <template #right>
+      <UButton
+        color="neutral"
+        variant="ghost"
+        to="https://www.linkedin.com/in/afonsodemori/"
+        target="_blank"
+        icon="i-simple-icons-linkedin"
+        aria-label="LinkedIn"
+      />
+
+      <UButton
+        color="neutral"
+        variant="ghost"
+        to="https://github.com/afonsodemori"
+        target="_blank"
+        icon="i-simple-icons-github"
+        aria-label="GitHub"
+      />
+    </template>
+
+    <template #body>
+      <UNavigationMenu :items="items" orientation="vertical" class="gap-5" />
+    </template>
+  </UHeader>
 </template>

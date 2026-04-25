@@ -4,9 +4,15 @@
 
 <template>
   <BaseLayout>
-    <Navbar class="print:hidden" />
-    <Header class="print:hidden" />
-    <div class="my-10 print:m-0"><slot /></div>
-    <DefaultFooter class="print:hidden" />
+    <div class="min-h-screen flex flex-col">
+      <Navbar class="print:hidden" />
+      <Header class="print:hidden" />
+
+      <main class="flex-grow my-10 print:m-0">
+        <slot />
+      </main>
+
+      <DefaultFooter class="print:hidden" />
+    </div>
   </BaseLayout>
 </template>
