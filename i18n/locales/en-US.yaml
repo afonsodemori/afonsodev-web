@@ -79,3 +79,10 @@ contact:
     success: Your message was sent successfully!
     failure: Failed to submit. Please try again.
     unexpected: An error occurred. Please try again.
+
+footer:
+  subtitle: Software Engineer · Fuentesauco, Spain
+  tagline: 17+ years crafting backend systems. PHP, TypeScript, Go — and whatever the problem calls for.
+  site: Site
+  projects: Projects
+  profiles: Profiles

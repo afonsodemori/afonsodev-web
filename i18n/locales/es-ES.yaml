@@ -79,3 +79,10 @@ contact:
     success: ¡Tu mensaje se envió con éxito!
     failure: No se pudo enviar. Por favor, inténtalo de nuevo.
     unexpected: Ocurrió un error. Por favor, inténtalo de nuevo.
+
+footer:
+  subtitle: Ingeniero de Software · Fuentesauco, España
+  tagline: Más de 17 años desarrollando sistemas backend. PHP, TypeScript, Go — y lo que el problema requiera.
+  site: Sitio
+  projects: Proyectos
+  profiles: Perfiles

@@ -107,7 +107,7 @@
 </script>
 
 <template>
-  <UContainer class="pb-10" style="min-height: 60vh">
+  <UContainer>
     <UForm :schema="schema" :state="state" class="space-y-4 max-w-180 m-auto" @submit="onSubmit">
       <UFormField :label="$t('contact.form.name')" name="name">
         <UInput v-model="state.name" :disabled="loading" size="xl" class="w-full" />
