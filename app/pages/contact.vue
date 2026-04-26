@@ -47,6 +47,7 @@
   });
 
   let widgetId: string | null = null;
+  const turnstileToken = ref<string | null>(null);
 
   onMounted(() => {
     setTimeout(() => {
@@ -54,6 +55,9 @@
         sitekey: turnstileKey,
         theme: 'dark',
         language: locale.value,
+        callback: (token: string) => (turnstileToken.value = token),
+        'expired-callback': () => (turnstileToken.value = null),
+        'error-callback': () => (turnstileToken.value = null),
       });
     }, 5000);
   });
@@ -147,7 +151,7 @@
 
       <div id="turnstile-container" />
 
-      <UButton :disabled="loading" type="submit" class="py-2">
+      <UButton :disabled="loading || !turnstileToken" type="submit" class="py-2">
         {{ loading ? $t('contact.form.submitting') : $t('contact.form.submit') }}
       </UButton>
     </UForm>
