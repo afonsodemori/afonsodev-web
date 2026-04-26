@@ -54,7 +54,11 @@
           e.preventDefault();
           navigateTo(contact);
         });
-      } else if (index !== 0 && index !== 3) a.setAttribute('target', '_blank');
+      } else if (index !== 0) {
+        a.setAttribute('target', '_blank');
+        const hostname = `https://${new URL(a.href).hostname}/`;
+        a.innerHTML = a.innerHTML.replace(hostname, '').replace(/\/$/, '');
+      }
     });
 
     const lastParagraph = pageElement?.querySelector('p:last-of-type') as HTMLParagraphElement | null;
@@ -79,7 +83,7 @@
       for (let i = 0; i < experienceElements.length; i++) {
         if (experienceElements[i]?.tagName === 'H3') {
           h3Count++;
-          if (h3Count === 6) {
+          if (h3Count === 5) {
             splitIndex = i;
             break;
           }
@@ -173,7 +177,7 @@
 </script>
 
 <template>
-  <div class="containers">
+  <div class="main-container">
     <div class="text-center pb-5 print:hidden">
       <UDropdownMenu arrow :items="itemsFirstButton" external-icon="false">
         <UButton
@@ -202,8 +206,9 @@
         />
       </UDropdownMenu>
     </div>
-    <!-- eslint-disable-next-line vue/no-v-html -->
+
     <div id="page" v-html="$t('resume.html')" />
+
     <Teleport v-if="earlyExpReady" to="#early-exp-sentinel">
       <UButton
         color="neutral"
@@ -220,31 +225,28 @@
 </template>
 
 <style scoped>
-  /* Page */
-  #page {
-    transition-duration: 200ms;
-    border-radius: 1rem;
-    max-width: 980px;
-    margin: auto;
-    padding: 3rem;
-    font:
-      inherit 1rem/1.6 Inter,
-      sans-serif;
-    color: #000;
-    text-align: justify;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-
-  .containers {
-    transition-duration: 200ms;
+  .main-container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  /* Content formatting */
+  #page {
+    border-radius: 1rem;
+    max-width: 980px;
+    margin: auto;
+    padding: 4rem;
+    /* font:
+      inherit 1rem/1.6 Inter,
+      sans-serif; */
+    text-align: justify;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.75);
+    border: 5px solid rgba(255, 255, 255, 0.1);
+  }
+
   :deep(a) {
-    color: #155dfc;
+    color: #51a2ff;
     text-decoration: underline;
   }
 
@@ -285,34 +287,25 @@
     text-align: right;
   }
 
-  .dark #page {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(0, 0, 0, 0.25);
-    box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.75);
-  }
-
-  .dark #page :deep(a) {
-    color: #51a2ff;
-  }
-
   @media screen and (max-width: 800px) {
-    #page {
-      padding: 2rem 1rem;
+    .main-container {
+      padding: 0.25rem;
     }
 
-    .containers {
-      padding: 0.25rem;
+    #page {
+      padding: 2rem 1rem;
     }
   }
 
   @media screen and (max-width: 750px) {
+    .main-container {
+      padding: 0;
+    }
+
     #page {
       margin: inherit 0;
       text-align: left;
-    }
-
-    .containers {
-      padding: 0;
+      border: 0;
     }
 
     :deep(ul) {
@@ -322,14 +315,14 @@
   }
 
   @media print {
-    #page,
-    .dark #page,
-    .containers {
+    .main-container,
+    #page {
       max-width: 100%;
       width: 100%;
       box-shadow: none;
       margin: 0;
       padding: 0;
+      border: 0;
       background-color: white;
       color: #000;
     }
