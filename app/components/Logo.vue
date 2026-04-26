@@ -45,7 +45,7 @@
 
 <style>
   .suffix-clip {
-    margin-left: -0.25ch;
+    margin-left: -0.4ch;
     overflow: hidden;
     height: 1.1em;
     vertical-align: text-bottom;
@@ -67,6 +67,6 @@
   }
 
   .dev {
-    margin-left: -0.25ch;
+    margin-left: -0.4ch;
   }
 </style>
