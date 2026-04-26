@@ -6,6 +6,16 @@
   const config = useRuntimeConfig();
   const route = useRoute();
 
+  useHead({
+    script: [
+      {
+        id: 'cf-turnstile',
+        src: 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit',
+        defer: true,
+      },
+    ],
+  });
+
   const isDevelopment = config.public.nodeEnv === 'development';
   const host = config.public.websiteHost;
   const apiBaseUrl = config.public.apiBaseUrl;
@@ -39,11 +49,13 @@
   let widgetId: string | null = null;
 
   onMounted(() => {
-    widgetId = turnstile.render('#turnstile-container', {
-      sitekey: turnstileKey,
-      theme: 'dark',
-      language: locale.value,
-    });
+    setTimeout(() => {
+      widgetId = turnstile.render('#turnstile-container', {
+        sitekey: turnstileKey,
+        theme: 'dark',
+        language: locale.value,
+      });
+    }, 5000);
   });
 
   onBeforeUnmount(() => {
