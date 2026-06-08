@@ -104,7 +104,9 @@
   }
 
   onMounted(() => {
-    fetch(`${staticHost}/afonso-de-mori-cv-${locale.value}-full.html`)
+    fetch(`${staticHost}/afonso-de-mori-cv-${locale.value}-full.html`, {
+      cache: 'no-store',
+    })
       .then((response) => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
