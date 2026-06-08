@@ -8,6 +8,9 @@
     "strings": "on"
   },
   "files.autoSave": "onFocusChange",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"
   }

@@ -1,3 +1,9 @@
+/api/* /api 200
+/fns-cli/* /fns-cli 200
+/greenlight/* /greenlight 200
+/resume-sync/* /resume-sync 200
+/snippetbox/* /snippetbox 200
+
 /cv /resume 308
 /curriculum /resume 308
 /cv/all https://drive.google.com/drive/folders/1B0v7C3FAdieTa7O63SBz4KEtYDR3wNfI 308
