@@ -1,5 +1,6 @@
 /cv /resume 308
 /curriculum /resume 308
+/cv/all https://drive.google.com/drive/folders/1B0v7C3FAdieTa7O63SBz4KEtYDR3wNfI 308
 
 /cv/en /resume 308
 /cv/es /es/resume 308
@@ -101,8 +102,7 @@
 /duolingo https://www.duolingo.com/profile/afonsodemori 308
 
 /status https://status.afonso.dev 308
-/fns-cli https://github.com/afonsodemori/fns-cli 308
 
-/office https://meet.google.com/jjg-tbus-xhc 308
-/despacho https://meet.google.com/jjg-tbus-xhc 308
-/meet https://meet.google.com/rpz-thpg-pxf 308
+/office / 307
+/despacho / 307
+/meet / 307
